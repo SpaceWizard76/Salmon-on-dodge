@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Salmon on the Dodge</title>
+<style>
+:root{--bg:#0b2a3a}
+html,body{height:100%;margin:0;background:var(--bg);font-family:system-ui,sans-serif;overflow:hidden}
+body{display:flex;align-items:center;justify-content:center;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+canvas{max-width:100%;max-height:100%;touch-action:manipulation;user-select:none}
+</style></head><body>
+<canvas id="c" width="360" height="560"></canvas>
+<script>
+const c=document.getElementById('c'),x=c.getContext('2d'),W=360,H=560,GAP=165,SX=90;
+let S,best=0;
+try{best=+localStorage.getItem('salmonBest')||0}catch(e){}
+function reset(){S={y:260,vy:0,p:[],it:[],m:0,f:0,go:false,dead:false,cool:0,sp:2.2,d:0,next:0,t:0,msg:''}}
+reset();
+function flap(){
+  if(S.dead){if(S.cool
